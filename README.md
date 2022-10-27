@@ -89,7 +89,31 @@ y = sequence.pad_sequences(maxlen=max_len,
                   value=tag2idx["O"])
 X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.2, random_state=1)
 
-
+model.summary()
+# Write your code here
+model.compile(optimizer="adam",
+              loss="sparse_categorical_crossentropy",
+              metrics=["accuracy"])
+history = model.fit(
+    x=X_train,
+    y=y_train,
+    validation_data=(X_test,y_test),
+    batch_size=32, 
+    epochs=3,
+)
+metrics = pd.DataFrame(model.history.history)
+metrics.head()
+metrics[['accuracy','val_accuracy']].plot()
+metrics[['loss','val_loss']].plot()
+i = 20
+p = model.predict(np.array([X_test[i]]))
+p = np.argmax(p, axis=-1)
+y_true = y_test[i]
+print("{:15}{:5}\t {}\n".format("Word", "True", "Pred"))
+print("-" *30)
+for w, true, pred in zip(X_test[i], y_true, p[0]):
+    print("{:15}{}\t{}".format(words[w-1], tags[true], tags[pred]))
+    
 ```
 
 ## OUTPUT
