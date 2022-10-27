@@ -6,8 +6,6 @@ To develop an LSTM-based model for recognizing the named entities in the text.
 ## Problem Statement and Dataset
 For the given Dataset which consists of various sentences , we have to develop a model to correctly predict the tag for each word in the sentence and classify it its corrosponding class. 
 
-## Neural Network Model
-
 ## DESIGN STEPS
 ### STEP 1:
 Import the required packages and dataset 
@@ -114,15 +112,20 @@ print("-" *30)
 for w, true, pred in zip(X_test[i], y_true, p[0]):
     print("{:15}{}\t{}".format(words[w-1], tags[true], tags[pred]))
     
+#sample text prediction
+sample =["Iran",  "is",  "trying", "to",  "produce", "nuclear",  "weapons"]
+x1 = [word2idx[i] for i in sample]
+
 ```
 
 ## OUTPUT
-
 ### Training Loss, Validation Loss Vs Iteration Plot
 
-Include your plot here
+![table](https://user-images.githubusercontent.com/75234646/198294131-0da03008-ba85-44e0-8378-55a7f5209b5a.png)
+![valacc](https://user-images.githubusercontent.com/75234646/198293926-a8ca3cd5-227f-464c-b286-a878629eaff6.png)
+![valoc](https://user-images.githubusercontent.com/75234646/198294028-bce1ee56-50b7-4aa5-bfa3-e96dae63a5d9.png)
 
 ### Sample Text Prediction
-Include your sample text prediction here.
 
 ## RESULT
+Thus an LSTM-based model for recognizing the named entities in the text has been developed successfully.
