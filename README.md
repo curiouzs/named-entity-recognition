@@ -112,18 +112,6 @@ print("-" *30)
 for w, true, pred in zip(X_test[i], y_true, p[0]):
     print("{:15}{}\t{}".format(words[w-1], tags[true], tags[pred]))
     
-#sample text prediction
-sample =["Iran",  "is",  "trying", "to",  "produce", "nuclear",  "weapons"]
-x1 = [word2idx[i] for i in sample]
-x1
-x2 = []
-x2.append(x1)
-x3 = sequence.pad_sequences(maxlen=max_len,
-                  sequences=y1,
-                  padding="post",
-                  value=tag2idx["O"])
-x3
-
 ```
 
 ## OUTPUT
@@ -134,6 +122,7 @@ x3
 ![valoc](https://user-images.githubusercontent.com/75234646/198294028-bce1ee56-50b7-4aa5-bfa3-e96dae63a5d9.png)
 
 ### Sample Text Prediction
+![smpale](https://user-images.githubusercontent.com/75234646/198298636-9389ddf0-6304-41ba-932b-29f1682713c4.png)
 
 ## RESULT
 Thus an LSTM-based model for recognizing the named entities in the text has been developed successfully.
