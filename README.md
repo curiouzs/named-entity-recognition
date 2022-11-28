@@ -1,11 +1,10 @@
-# Named Entiry Recognition
-
+## EXP.NO : 06
+## DATE   : 
+# <h1 align ="center">Named Entiry Recognition</h1>
 ## AIM
 To develop an LSTM-based model for recognizing the named entities in the text.
-
 ## Problem Statement and Dataset
 For the given Dataset which consists of various sentences , we have to develop a model to correctly predict the tag for each word in the sentence and classify it its corrosponding class. 
-
 ## DESIGN STEPS
 ### STEP 1:
 Import the required packages and dataset 
@@ -15,10 +14,11 @@ Create the model with LSTM
 Compile the model 
 ### STEP 4:
 Train and test the model with datas.
-Write your own steps
 
 ## PROGRAM
 ```python
+#DEVELOPED BY : M.Lokesh Krishnaa 
+#REG. NO : 212220230030
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -40,7 +40,6 @@ print("Unique tags are:", tags)
 num_words = len(words)
 num_tags = len(tags)
 num_words
-
 class SentenceGetter(object):
     def __init__(self, data):
         self.n_sent = 1
@@ -86,7 +85,6 @@ y = sequence.pad_sequences(maxlen=max_len,
                   padding="post",
                   value=tag2idx["O"])
 X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.2, random_state=1)
-
 model.summary()
 # Write your code here
 model.compile(optimizer="adam",
@@ -110,19 +108,16 @@ y_true = y_test[i]
 print("{:15}{:5}\t {}\n".format("Word", "True", "Pred"))
 print("-" *30)
 for w, true, pred in zip(X_test[i], y_true, p[0]):
-    print("{:15}{}\t{}".format(words[w-1], tags[true], tags[pred]))
-    
+   print("{:15}{}\t{}".format(words[w-1], tags[true], tags[pred]))
 ```
-
 ## OUTPUT
 ### Training Loss, Validation Loss Vs Iteration Plot
-
-![table](https://user-images.githubusercontent.com/75234646/198294131-0da03008-ba85-44e0-8378-55a7f5209b5a.png)
-![valacc](https://user-images.githubusercontent.com/75234646/198293926-a8ca3cd5-227f-464c-b286-a878629eaff6.png)
-![valoc](https://user-images.githubusercontent.com/75234646/198294028-bce1ee56-50b7-4aa5-bfa3-e96dae63a5d9.png)
+<img src ="https://user-images.githubusercontent.com/75234646/198294131-0da03008-ba85-44e0-8378-55a7f5209b5a.png" width ="50%" height="40%">
+<img src ="https://user-images.githubusercontent.com/75234646/198293926-a8ca3cd5-227f-464c-b286-a878629eaff6.png" width ="50%" height="40%">
+<img src ="https://user-images.githubusercontent.com/75234646/198294028-bce1ee56-50b7-4aa5-bfa3-e96dae63a5d9.png" width ="50%" height="40%">
 
 ### Sample Text Prediction
-![smpale](https://user-images.githubusercontent.com/75234646/198298636-9389ddf0-6304-41ba-932b-29f1682713c4.png)
+<img src ="https://user-images.githubusercontent.com/75234646/198298636-9389ddf0-6304-41ba-932b-29f1682713c4.png" width ="50%" height="40%">
 
 ## RESULT
 Thus an LSTM-based model for recognizing the named entities in the text has been developed successfully.
